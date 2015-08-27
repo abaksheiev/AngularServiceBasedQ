@@ -6,7 +6,10 @@ App.Models.UserVM = function (item) {
     var _id,
         _firstName,
         _lastName,
-        _isValid;
+        _isValid,
+        _checked
+
+
 
     var _isEditValue = false;
 
@@ -43,6 +46,7 @@ App.Models.UserVM = function (item) {
         id: _id,
         firstName: _firstName,
         lastName: _lastName,
+        checked: _checked,
 
         createUserVMFromUser: _createUserVMFromUser,
         isEdit: _isEdit,
