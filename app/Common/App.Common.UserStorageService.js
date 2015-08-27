@@ -75,3 +75,5 @@ App.Common.UserStorageService = function ($window) {
 };
 
 App.Common.UserStorageService.$inject = ['$window'];
+
+myApp.factory('userStorageService', App.Common.UserStorageService);

@@ -26,18 +26,13 @@
     <div class="col-md-1"></div>
     <div class="col-md-10">
 
-        <nav class="navbar navbar-default" ng-controller="navigationController">
-            <div class="container">
+        <app-nav>
+            <app-nav-item text="Add" actionCode="userAdd"></app-nav-item>
+            <app-nav-item text="Edit" actionCode="userEdit"></app-nav-item>
+            <app-nav-item text="Delete" actionCode="userDelete"></app-nav-item>
+            <app-nav-item text="Fill Mock Data" actionCode="userFillMockData"></app-nav-item>
+        </app-nav>
 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" ng-click="userProxyEvents.userAdd()">Add</a></li>
-                        <li><a href="#" ng-click="userProxyEvents.userEdit()">Edit</a></li>
-                        <li><a href="#" ng-click="userProxyEvents.userDelete()">Delete</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
     </div>
 
     <div class="col-md-1"></div>
@@ -62,14 +57,16 @@
                     <td>
                         <span ng-show="!u.isEdit()">{{u.firstName}}</span>
                         <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="First Name" ng-model="u.firstName" ng-class="{'invalidValue':!u.isValid()}"
+                            <input type="text" placeholder="First Name" ng-model="u.firstName"
+                                   ng-class="{'invalidValue':!u.isValid()}"
                                    value="{{u.firstName}}">
                         </span>
                     </td>
                     <td>
                         <span ng-show="!u.isEdit()">{{u.lastName}}</span>
                         <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="Lasst Name" ng-model="u.lastName" ng-class="{'invalidValue':!u.isValid()}"
+                            <input type="text" placeholder="Lasst Name" ng-model="u.lastName"
+                                   ng-class="{'invalidValue':!u.isValid()}"
                                    value="{{u.lastName}}">
                         </span>
                     </td>
@@ -77,7 +74,6 @@
                         <button type="button" ng-show="u.isEdit()" ng-click="save(u)" class="btn btn-default btn-sm">
                             Save
                         </button>
-
 
                         <button type="button" ng-show="!u.isEdit()" ng-click="edit(u)" class="btn btn-default btn-sm">
                             Edit
@@ -97,25 +93,32 @@
 
 
 <script language="javascript">
-    App = {};
-    App.Controllers = {};
-    App.Services = {};
-    App.Common = {};
-    App.Models = {};
+    App = {
+        Controllers: {},
+        Services: {},
+        Common: {},
+        Models: {},
+        Directories: {}
+    };
 </script>
+<!-- Directives -->
+<script src="app/directives/navigation/App.Directives.AppNavItem.js"></script>
+<script src="app/directives/navigation/App.Directives.AppNav.js"></script>
+
+
 <!-- ViewModels-->
 <script src="app/models/App.Models.UserVM.js"></script>
+
 <!-- Data Base-->
 <script src="app/Common/App.Common.UserStorageService.js"></script>
+
 <!-- Services-->
 <script src="app/services/App.Services.UserService.js"></script>
 <script src="app/services/App.Services.Navigation.js"></script>
-<script src="app/services/App.Services.js"></script>
+
 <!-- Controllers-->
 <script src="app/components/App.Controllers.Users.js"></script>
 <script src="app/components/App.Controllers.Navigation.js"></script>
-
-<script src="app/components/App.Controllers.js"></script>
 
 </body>
 </html>

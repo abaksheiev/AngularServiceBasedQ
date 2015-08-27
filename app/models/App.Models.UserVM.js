@@ -2,6 +2,7 @@
  * Created by Anton on 27.08.2015.
  */
 App.Models.UserVM = function (item) {
+
     var _id,
         _firstName,
         _lastName,
