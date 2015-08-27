@@ -10,7 +10,8 @@ App.Common.UserStorageService = function ($window) {
 
     _add = function (item) {
         storage.setItem(
-            item.id, angular.toJson({
+            item.id,
+            angular.toJson({
                 firstName: item.firstName,
                 lastName: item.lastName
             })
