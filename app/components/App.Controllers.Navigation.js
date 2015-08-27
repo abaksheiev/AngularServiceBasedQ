@@ -14,9 +14,14 @@ App.Controllers.NavigationController = function ($scope, navigationService) {
 
         userDelete: function () {
             navigationService.go('userDelete');
+        },
+        userFillMockData: function(){
+            navigationService.go('userFillMockData');
         }
     };
 
 };
 
 App.Controllers.NavigationController.$inject = ['$scope','navigationService'];
+
+myApp.controller('navigationController', App.Controllers.NavigationController);

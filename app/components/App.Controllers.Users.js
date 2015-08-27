@@ -2,8 +2,6 @@
  * Created by Anton on 26.08.2015.
  */
 App.Controllers.UserController = function ($scope, userService) {
-    userService.fillTestData();
-
     $scope.users = userService.getAll();
 
     $scope.save = function (item) {
@@ -11,8 +9,8 @@ App.Controllers.UserController = function ($scope, userService) {
         $scope.users = userService.getAll();
     };
 
-    $scope.delete = function (id) {
-        userService.delete(id);
+    $scope.delete = function (item) {
+        userService.delete(item.id);
         $scope.users = userService.getAll();
     };
 
@@ -42,6 +40,10 @@ App.Controllers.UserController = function ($scope, userService) {
         console.log(arguments);
     });
 
+    $scope.$on('userFillMockData', function(){
+        userService.fillTestData();
+    });
 };
 
 App.Controllers.UserController.$inject = ['$scope', 'userService'];
+myApp.controller('userController', App.Controllers.UserController);

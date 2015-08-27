@@ -36,3 +36,5 @@ App.Services.UserService = function (userStorageService, $q) {
 };
 
 App.Services.UserService.$inject = ['userStorageService', '$q'];
+
+myApp.factory('userService', App.Services.UserService);

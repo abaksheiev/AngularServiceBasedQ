@@ -14,7 +14,9 @@ App.Services.NavigationService = function ( $rootScope) {
         }
     }
 
-    return sharedService;
 };
 
 App.Services.NavigationService.$inject = ['$rootScope'];
+
+
+myApp.factory('navigationService', App.Services.NavigationService);
