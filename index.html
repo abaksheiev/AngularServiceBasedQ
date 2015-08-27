@@ -7,6 +7,8 @@
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
 
+    <link href="content/css/app.css" rel="stylesheet">
+
     <script src="node_modules/angular/angular.min.js" language="JavaScript"></script>
 
     <script src="app/app.js" language="JavaScript"></script>
@@ -53,14 +55,40 @@
             </thead>
             <tbody>
             <tr ng-repeat="u in users">
-                <td>{{$index}}</td>
-                <td>{{u.firstName}}</td>
-                <td>{{u.lastName}}</td>
-                <td>
-                    <button type="button" ng-click="save()" class="btn btn-default btn-sm">Save</button>
-                    <button type="button" ng-click="delete(u.id)" class="btn btn-default btn-sm">Delete</button>
-                </td>
+                <div ng-show="1">
+                    <td>
+                        <span>{{u.id}}</span>
+                    </td>
+                    <td>
+                        <span ng-show="!u.isEdit()">{{u.firstName}}</span>
+                        <span ng-show="u.isEdit()">
+                            <input type="text" placeholder="First Name" ng-model="u.firstName" ng-class="{'invalidValue':!u.isValid()}"
+                                   value="{{u.firstName}}">
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-show="!u.isEdit()">{{u.lastName}}</span>
+                        <span ng-show="u.isEdit()">
+                            <input type="text" placeholder="Lasst Name" ng-model="u.lastName" ng-class="{'invalidValue':!u.isValid()}"
+                                   value="{{u.lastName}}">
+                        </span>
+                    </td>
+                    <td>
+                        <button type="button" ng-show="u.isEdit()" ng-click="save(u)" class="btn btn-default btn-sm">
+                            Save
+                        </button>
+
+
+                        <button type="button" ng-show="!u.isEdit()" ng-click="edit(u)" class="btn btn-default btn-sm">
+                            Edit
+                        </button>
+                        <button type="button" ng-show="!u.isEdit()" ng-click="delete(u)" class="btn btn-default btn-sm">
+                            Delete
+                        </button>
+                    </td>
+                </div>
             </tr>
+
             </tbody>
         </table>
     </div>
@@ -72,15 +100,18 @@
     App = {};
     App.Controllers = {};
     App.Services = {};
-    App.Common={};
+    App.Common = {};
+    App.Models = {};
 </script>
-
+<!-- ViewModels-->
+<script src="app/models/App.Models.UserVM.js"></script>
+<!-- Data Base-->
 <script src="app/Common/App.Common.UserStorageService.js"></script>
-
+<!-- Services-->
 <script src="app/services/App.Services.UserService.js"></script>
 <script src="app/services/App.Services.Navigation.js"></script>
 <script src="app/services/App.Services.js"></script>
-
+<!-- Controllers-->
 <script src="app/components/App.Controllers.Users.js"></script>
 <script src="app/components/App.Controllers.Navigation.js"></script>
 

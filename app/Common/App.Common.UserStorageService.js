@@ -16,6 +16,17 @@ App.Common.UserStorageService = function ($window) {
             })
         );
     };
+
+    _save = function(item){
+
+        if(item.id === null){
+            item.id = $window.localStorage.length + 1;
+        }
+
+        _add(item);
+    }
+
+
     _delete = function (id) {
         storage.removeItem(id);
     };
@@ -55,6 +66,7 @@ App.Common.UserStorageService = function ($window) {
 
     return {
         add: _add,
+        save: _save,
         delete: _delete,
         getById: _getById,
         getAll: _getAll,

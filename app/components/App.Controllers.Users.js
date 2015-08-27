@@ -6,8 +6,9 @@ App.Controllers.UserController = function ($scope, userService) {
 
     $scope.users = userService.getAll();
 
-    $scope.save = function () {
-        console.log(arguments);
+    $scope.save = function (item) {
+        userService.save(item);
+        $scope.users = userService.getAll();
     };
 
     $scope.delete = function (id) {
@@ -19,11 +20,19 @@ App.Controllers.UserController = function ($scope, userService) {
         console.log(arguments);
     };
 
+    $scope.edit = function (user) {
+        user.isEdit(true);
+    }
+
     $scope.$on('userAdd', function () {
-        $scope.users.push({
-            firstName: 'none',
-            lastName: 'none'
-        })
+        userService.save({
+            id: null,
+            firstName: null,
+            lastName: null
+        });
+
+        $scope.users = userService.getAll();
+
     });
     $scope.$on('userEdit', function () {
         alert('userEdit');
