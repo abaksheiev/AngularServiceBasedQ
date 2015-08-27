@@ -5,7 +5,6 @@ App.Controllers.NavigationController = function ($scope, navigationService) {
 
     $scope.userProxyEvents = {
         userAdd: function () {
-            alert(1);
             navigationService.go('userAdd');
         },
 
