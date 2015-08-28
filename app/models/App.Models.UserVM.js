@@ -9,8 +9,6 @@ App.Models.UserVM = function (item) {
         _isValid,
         _checked
 
-
-
     var _isEditValue = false;
 
     var _createUserVMFromUser = function (user) {
@@ -24,7 +22,7 @@ App.Models.UserVM = function (item) {
     }
 
     var _isEdit = function (value) {
-        if (value) {
+        if (value !== undefined) {
             _isEditValue = value;
         }
         return _isEditValue
@@ -52,4 +50,4 @@ App.Models.UserVM = function (item) {
         isEdit: _isEdit,
         isValid: _isValid
     }
-}
+};

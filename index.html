@@ -16,78 +16,41 @@
 <body ng-app="app">
 
 <div class="well">
-    <p>SPA</p>
-    <p>FronEnd => AngularJs + bootstrap</p>
-    <p> BackEnd => windows.localstorage</p>
-    <small><b>Author:</b> <i>Baksheiev Anton</i></small></br>
-    <small><b>linkedin:</b> <i><a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a></i></small></br>
+    <small><b>Author:</b> <i>Baksheiev Anton</i></small>
+    </br>
+    <small><b>linkedin:</b> <i><a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a></i>
+    </small>
+    </br>
 </div>
 
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-
+<!-- Navigation -->
         <app-nav>
-            <app-nav-item text="Add" actionCode="userAdd"></app-nav-item>
-            <app-nav-item text="Edit" actionCode="userEdit"></app-nav-item>
-            <app-nav-item text="Delete" actionCode="userDelete"></app-nav-item>
-            <app-nav-item text="Fill Mock Data" actionCode="userFillMockData"></app-nav-item>
+            <app-nav-item text="User" actionCode="userList"></app-nav-item>
         </app-nav>
-
+<!-- /Navigation -->
     </div>
-
     <div class="col-md-1"></div>
 </div>
 <div class="row" ng-controller="userController">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="u in users">
-                <div ng-show="1">
-                    <td>
-                        <span>{{u.id}}</span>
-                    </td>
-                    <td>
-                        <span ng-show="!u.isEdit()">{{u.firstName}}</span>
-                        <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="First Name" ng-model="u.firstName"
-                                   ng-class="{'invalidValue':!u.isValid()}"
-                                   value="{{u.firstName}}">
-                        </span>
-                    </td>
-                    <td>
-                        <span ng-show="!u.isEdit()">{{u.lastName}}</span>
-                        <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="Lasst Name" ng-model="u.lastName"
-                                   ng-class="{'invalidValue':!u.isValid()}"
-                                   value="{{u.lastName}}">
-                        </span>
-                    </td>
-                    <td>
-                        <button type="button" ng-show="u.isEdit()" ng-click="save(u)" class="btn btn-default btn-sm">
-                            Save
-                        </button>
+<!-- Table -->
+        <app-table source="users">
 
-                        <button type="button" ng-show="!u.isEdit()" ng-click="edit(u)" class="btn btn-default btn-sm">
-                            Edit
-                        </button>
-                        <button type="button" ng-show="!u.isEdit()" ng-click="delete(u)" class="btn btn-default btn-sm">
-                            Delete
-                        </button>
-                    </td>
-                </div>
-            </tr>
+            <app-table-field title="#" field="id" type="checkbox"></app-table-field>
+            <app-table-field title="First Name" field="firstName" type="text"></app-table-field>
+            <app-table-field title="Last Name" field="lastName" type="text"></app-table-field>
 
-            </tbody>
-        </table>
+
+            <app-table-action code="edit" click="edit"  title="Edit"></app-table-action>
+            <app-table-action code="save" click="save" title="Save"></app-table-action>
+            <app-table-action code="delete"  click="delete" title="Delete"></app-table-action>
+
+        </app-table>
+<!-- /Table -->
     </div>
     <div class="col-md-1"></div>
 </div>
@@ -106,6 +69,9 @@
 <script src="app/directives/navigation/App.Directives.AppNavItem.js"></script>
 <script src="app/directives/navigation/App.Directives.AppNav.js"></script>
 
+<script src="app/directives/table/App.Directives.AppTable.js"></script>
+<script src="app/directives/table/App.Directives.AppTableField.js"></script>
+<script src="app/directives/table/App.Directives.AppTableAction.js"></script>
 
 <!-- ViewModels-->
 <script src="app/models/App.Models.UserVM.js"></script>
@@ -120,6 +86,5 @@
 <!-- Controllers-->
 <script src="app/components/App.Controllers.Users.js"></script>
 <script src="app/components/App.Controllers.Navigation.js"></script>
-
 </body>
 </html>

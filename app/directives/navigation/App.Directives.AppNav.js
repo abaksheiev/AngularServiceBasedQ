@@ -8,8 +8,11 @@ App.Directories.AppNav = function factory() {
         restrict: 'E',
         templateNamespace: 'html',
         transclude: true,
-        replace: true,
+        controller: function () {
+            console.log('appNav:controller');
+        },
         link: function link(scope, element, attrs) {
+            console.log('appNav:link');
         }
     };
 

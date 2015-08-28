@@ -1,0 +1,32 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+        <th ng-repeat="column in tableData.fields">{{column.title}}</th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in source">
+            <td ng-repeat="field in tableData.fields">
+
+                <span ng-show="!data.isEdit()">{{data[field.name]}}</span>
+
+                <span ng-show="data.isEdit()">
+                            <input type="text" placeholder="imput" ng-model="data[field.name]"
+                                   ng-class="{'invalidValue':!data.isValid()}"
+                                   value="{{data[field.name]}}">
+                        </span>
+            </td>
+            <td>
+
+                <button ng-repeat="action in tableData.actions"
+                        ng-show="action.visibility(data)"
+                        ng-click="action.click(data)"
+                        class="btn btn-default btn-sm">
+                    {{action.title}}
+                </button>
+
+        </tr>
+        </tbody>
+    </table>
+    <div ng-transclude></div>
+</div>

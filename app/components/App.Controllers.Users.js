@@ -1,7 +1,9 @@
 /**
  * Created by Anton on 26.08.2015.
  */
-App.Controllers.UserController = function ($scope, userService) {
+App.Controllers.UserController = function ($scope, userService, $q) {
+    userService.fillTestData();
+
     $scope.users = userService.getAll();
 
     $scope.save = function (item) {
@@ -19,7 +21,28 @@ App.Controllers.UserController = function ($scope, userService) {
     };
 
     $scope.edit = function (user) {
-        user.isEdit(true);
+        var deferredObj = $q.defer();
+        var promise = deferredObj.promise;
+
+        promise
+            .then(function () {
+                for (var i = 0; i < $scope.users.length; i++) {
+                    $scope.users[i].isEdit(false);
+                }
+            })
+            .then(function () {
+                user.isEdit(true);
+            }).then(function () {
+                angular.forEach($scope.users, function (value, key) {
+                    console.log(value.isEdit())
+
+                });
+            });
+        deferredObj.resolve();
+    }
+
+    $scope.actionTest = function () {
+        console.log('userController:actionTest');
     }
 
     $scope.$on('userAdd', function () {
@@ -40,10 +63,11 @@ App.Controllers.UserController = function ($scope, userService) {
         console.log(arguments);
     });
 
-    $scope.$on('userFillMockData', function(){
+    $scope.$on('userFillMockData', function () {
         userService.fillTestData();
     });
-};
+}
+;
 
-App.Controllers.UserController.$inject = ['$scope', 'userService'];
+App.Controllers.UserController.$inject = ['$scope', 'userService', '$q'];
 myApp.controller('userController', App.Controllers.UserController);

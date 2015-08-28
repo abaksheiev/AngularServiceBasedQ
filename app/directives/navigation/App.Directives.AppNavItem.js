@@ -5,12 +5,18 @@ App.Directories.AppNavItem = function factory(navigationService) {
     var directiveDefinitionObject = {
         restrict: 'E',
         replace: true,
+        transclude: true,
         templateNamespace: 'html',
         scope: {},
         template: function (tElement, tAttrs) {
             return "<li><a ng-click='wrapperGo()' href='#'>"+tAttrs.text+"</a></li>";
         },
+        controller:function(){
+            console.log('appNavItem:controller');
+
+        },
         link: function(scope, tElement, tAttrs) {
+            console.log('appNavItem:link')
             var actionCode = tAttrs['actioncode'];
             scope.wrapperGo = function() {
                 navigationService.go(actionCode);
