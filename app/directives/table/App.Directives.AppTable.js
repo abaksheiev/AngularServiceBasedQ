@@ -9,7 +9,6 @@ App.Directories.AppTable = function factory() {
     var _actions = [];
 
     var _addField = function (item) {
-        console.log(item);
         _fields.push(item);
     };
 

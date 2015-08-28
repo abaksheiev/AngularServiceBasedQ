@@ -9,10 +9,8 @@ App.Directories.AppTableField = function factory() {
         templateNamespace: 'html',
         requie:'^appTable',
         controller: function () {
-            console.log('AppTableField: controller')
         },
         link: function (scope, element, attrs, tabsCtrl) {
-            console.log('AppTableField: link')
             scope.$parent.addField({
                 title: attrs.title,
                 name: attrs.field,

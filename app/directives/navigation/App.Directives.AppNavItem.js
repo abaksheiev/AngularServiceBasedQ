@@ -12,11 +12,8 @@ App.Directories.AppNavItem = function factory(navigationService) {
             return "<li><a ng-click='wrapperGo()' href='#'>"+tAttrs.text+"</a></li>";
         },
         controller:function(){
-            console.log('appNavItem:controller');
-
         },
         link: function(scope, tElement, tAttrs) {
-            console.log('appNavItem:link')
             var actionCode = tAttrs['actioncode'];
             scope.wrapperGo = function() {
                 navigationService.go(actionCode);

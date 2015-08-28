@@ -17,7 +17,6 @@ App.Controllers.UserController = function ($scope, userService, $q) {
     };
 
     $scope.cancel = function () {
-        console.log(arguments);
     };
 
     $scope.edit = function (user) {
@@ -34,15 +33,9 @@ App.Controllers.UserController = function ($scope, userService, $q) {
                 user.isEdit(true);
             }).then(function () {
                 angular.forEach($scope.users, function (value, key) {
-                    console.log(value.isEdit())
-
                 });
             });
         deferredObj.resolve();
-    }
-
-    $scope.actionTest = function () {
-        console.log('userController:actionTest');
     }
 
     $scope.$on('userAdd', function () {
@@ -60,7 +53,7 @@ App.Controllers.UserController = function ($scope, userService, $q) {
     });
 
     $scope.$on('userDelete', function () {
-        console.log(arguments);
+
     });
 
     $scope.$on('userFillMockData', function () {
