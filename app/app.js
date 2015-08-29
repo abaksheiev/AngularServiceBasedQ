@@ -31,7 +31,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 
 myApp.run(function ($templateCache) {
     $templateCache.put('info.html',
-        '<small><b>Author:</b> <i>Baksheiev Anton+</i></small>' +
+        '<small><b>Author:</b> <i>Baksheiev Anton</i></small>' +
         '</br>' +
         '<small><b>linkedin:</b> ' +
         '<i><a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a></i>' +
