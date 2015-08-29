@@ -1,29 +1,29 @@
 /**
  * Created by Anton on 27.08.2015.
  */
-App.Directories.AppNavItem = function factory(navigationService) {
+App.Directories.AppNavItem = function factory() {
     var directiveDefinitionObject = {
         restrict: 'E',
         replace: true,
+        require: '^appNav',
         transclude: true,
-        templateNamespace: 'html',
         scope: {},
         template: function (tElement, tAttrs) {
-            return "<li><a ng-click='wrapperGo()' href='#'>"+tAttrs.text+"</a></li>";
+            return "<li><a ng-click='wrapperGo()' href=''>" + tAttrs.text + "</a></li>";
         },
-        controller:function(){
-        },
-        link: function(scope, tElement, tAttrs) {
-            var actionCode = tAttrs['actioncode'];
-            scope.wrapperGo = function() {
-                navigationService.go(actionCode);
+        link: function (scope, tElement, tAttrs, contrl) {
+            var codeAction = tAttrs.method;
+
+            scope.wrapperGo = function () {
+                scope.$parent[codeAction]();
             };
         }
     };
 
     return directiveDefinitionObject;
-};
+}
+;
 
-App.Directories.AppNavItem.$inject = ['navigationService'];
+App.Directories.AppNavItem.$inject = [];
 
 myApp.directive('appNavItem', App.Directories.AppNavItem);

@@ -1,7 +1,33 @@
 /**
  * Created by Anton on 26.08.2015.
  */
-var myApp = angular.module('app', []);
+
+var myApp = angular.module('app',
+    ['ngRoute']);
+
+myApp.config(function ($routeProvider, $locationProvider) {
+
+    $routeProvider
+        .when('/Users', {
+            templateUrl: 'partials/usersView.html',
+            controller: 'userController'
+        })
+        .when('/Countries', {
+            templateUrl: 'partials/countriesView.html',
+            controller: 'userController'
+        })
+        .when('/Companies', {
+            templateUrl: 'partials/companiesView.html',
+            controller: 'userController'
+        }).otherwise({
+            redirectTo: '/Users'
+        }
+    );
+
+    // configure html5 to get links working on jsfiddle
+    $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!')
+});
 
 myApp.run(function ($templateCache) {
     $templateCache.put('info.html',

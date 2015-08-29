@@ -32,6 +32,12 @@ App.Directories.AppTable = function factory() {
 
         };
     };
+
+    var _cleanUp=function(){
+        _fields=[];
+        _actions=[];
+    };
+
     return {
         restrict: 'E',
         templateNamespace: 'html',
@@ -47,11 +53,12 @@ App.Directories.AppTable = function factory() {
 
             $scope.addField = _addField;
             $scope.addAction = _addAction($scope);
+
+            $scope.$on('$destroy', _cleanUp);
         },
 
         templateUrl: 'app/directives/table/appTable.html'
     };
 };
-
 
 myApp.directive('appTable', App.Directories.AppTable);

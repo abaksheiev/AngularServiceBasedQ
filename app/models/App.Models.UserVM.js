@@ -5,7 +5,7 @@ App.Models.UserVM = function (item) {
 
     var _id,
         _firstName,
-        _lastName,
+        _email,
         _isValid,
         _checked
 
@@ -13,10 +13,10 @@ App.Models.UserVM = function (item) {
 
     var _createUserVMFromUser = function (user) {
         _id = user.id;
-        _firstName = user.firstName;
-        _lastName = user.lastName;
+        _firstName = user.name;
+        _email = user.email;
 
-        if(!_isValid()){
+        if (!_isValid()) {
             _isEdit(true);
         }
     }
@@ -28,12 +28,8 @@ App.Models.UserVM = function (item) {
         return _isEditValue
     }
 
-    var _isValid = function () {
-
-        if (_firstName === null
-            || _lastName === null) {
-            return false;
-        }
+    var _isValid = function (fieldName) {
+        //TODO: add validation
         return true;
     }
 
@@ -43,7 +39,7 @@ App.Models.UserVM = function (item) {
     return {
         id: _id,
         firstName: _firstName,
-        lastName: _lastName,
+        email: _email,
         checked: _checked,
 
         createUserVMFromUser: _createUserVMFromUser,
