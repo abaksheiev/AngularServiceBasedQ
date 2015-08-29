@@ -18,12 +18,12 @@ App.Directories.AppTable = function factory() {
                 click: $scope.$parent[a.event],
                 title: a.title,
                 code: a.code,
-                visibility: function(data){
-                    if(data.isEdit() && ['edit','delete'].indexOf(a.code)>-1){
+                visibility: function (data) {
+                    if (data.isEdit() && ['edit', 'delete'].indexOf(a.code) > -1) {
                         return false;
                     }
 
-                    if(!data.isEdit() && ['save'].indexOf(a.code)>-1){
+                    if (!data.isEdit() && ['save'].indexOf(a.code) > -1) {
                         return false;
                     }
                     return true;

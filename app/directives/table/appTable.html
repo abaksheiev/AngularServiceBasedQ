@@ -10,11 +10,11 @@
 
                 <span ng-show="!data.isEdit()">{{data[field.name]}}</span>
 
-                <span ng-show="data.isEdit()">
-                            <input type="text" placeholder="imput" ng-model="data[field.name]"
-                                   ng-class="{'invalidValue':!data.isValid()}"
-                                   value="{{data[field.name]}}">
-                        </span>
+                <span ng-switch on="field.type">
+                    <app-table-field-editor  ng-switch-when="checkbox" type="checkbox"></app-table-field-editor>
+                    <app-table-field-editor  ng-switch-when="text" type="text"></app-table-field-editor>
+                </span>
+
             </td>
             <td>
 
