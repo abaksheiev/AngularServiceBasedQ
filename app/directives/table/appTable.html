@@ -29,5 +29,10 @@
         </tr>
         </tbody>
     </table>
+    <div>
+        <ul class="pager">
+            <li ng-repeat="page in tableData.pages" ng-click="page.click(page)" href="" ng-class="{active:page.active}">{{page.title}} </li>
+        </ul>
+    </div>
     <div ng-transclude></div>
 </div>

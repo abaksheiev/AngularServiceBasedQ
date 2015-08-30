@@ -2,13 +2,16 @@
  * Created by Anton on 26.08.2015.
  */
 App.Controllers.UserController = function ($scope, $q, userService) {
+$scope.totalRecords = 0;
 
     var _refresh = function () {
-        userService.getAll()
-            .then(function (data) {
-                $scope.dataSource = data;
+        userService
+            .fillMockRecord()
+            .then(function (dataFull) {
+                $scope.totalRecords = dataFull.length;
             });
-    }
+    };
+
     _refresh();
 
     $scope.save = function (item) {
@@ -53,7 +56,17 @@ App.Controllers.UserController = function ($scope, $q, userService) {
             });
         deferredObj.resolve();
     }
+
+    $scope.goToPage=function(perPage, pageIndex){
+
+        userService.getRecordsByPageIndex(perPage, pageIndex)
+            .then(function (data) {
+                $scope.dataSource = [];
+                $scope.dataSource=data
+            });
+    }
+
 };
 
-App.Controllers.UserController.$inject = ['$scope',  '$q', 'userService'];
+App.Controllers.UserController.$inject = ['$scope', '$q', 'userService'];
 myApp.controller('userController', App.Controllers.UserController);

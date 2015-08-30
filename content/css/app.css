@@ -3,3 +3,23 @@
     background-color: #FFF0F0;
     color: black;
 }
+
+ul.pager {
+
+}
+
+ul.pager li{
+    float: left;
+    padding: 5px;
+    margin: 7px;
+    background-color: #dddddd;
+    border: 1px solid #9d9d9d;
+    color: #000;
+    cursor: pointer;
+    cursor: hand;
+}
+
+ul.pager li.active{
+    cursor: none;
+    background-color: #fff;
+}

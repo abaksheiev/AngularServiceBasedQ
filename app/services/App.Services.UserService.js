@@ -23,6 +23,21 @@ App.Services.UserService = function ($q, $http) {
         return pr;
     }
 
+    var _fillMockRecord = function () {
+        return $http.get(_urlPeopleData)
+            .then(function (responce) {
+
+                for (var i = 0; i < responce.data.length; i++) {
+                    var id = i;
+                    responce.data[i].id = id;
+                    var vm = App.Models.UserVM(responce.data[i]);
+                    _data.push(vm);
+                }
+
+                return _data;
+            })
+    };
+
     var _getAll = function () {
         if (_data.length > 0) {
             var deferredObj = $q.defer();
@@ -53,7 +68,7 @@ App.Services.UserService = function ($q, $http) {
         var pr = deferredObj.promise;
 
         pr.then(function (id) {
-            for (var i =0; i<_data.length;  i++) {
+            for (var i = 0; i < _data.length; i++) {
                 if (_data[i].id === id) {
                     _data.splice(i, 1);
                     break;
@@ -65,10 +80,50 @@ App.Services.UserService = function ($q, $http) {
         return pr;
     };
 
+    var _getTotal = function () {
+        var deferredObj = $q.defer();
+        var pr = deferredObj.promise;
+
+        pr.then(function () {
+            var t = _data.length;
+            return t;
+        })
+
+        deferredObj.resolve();
+        return pr;
+    }
+
+    var _getRecordsByPageIndex = function (perPage, pageIndex) {
+        var deferredObj = $q.defer();
+        var pr = deferredObj.promise;
+
+
+        var pr = _getTotal()
+            .then(function (total) {
+                var data = [];
+
+                var minIndex = perPage * (pageIndex );
+                var maxIndex = perPage * (pageIndex + 1);
+
+                for (var i = 0; i < _data.length; i++) {
+                    if (minIndex < i && i <= maxIndex) {
+                        data.push(_data[i]);
+                    }
+                }
+
+                return data;
+            });
+        deferredObj.resolve();
+        return pr;
+
+    }
+
     return {
         save: _save,
         delete: _delete,
-        getAll: _getAll,
+        fillMockRecord: _fillMockRecord,
+        getRecordsByPageIndex: _getRecordsByPageIndex,
+        getTotal: _getTotal
     }
 };
 
