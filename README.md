@@ -1,5 +1,6 @@
 # CRUDAngularjsApp
-Example of base architecture of angular project
+Example of base architecture of angular project</br>
+
 DEMO http://abaksheiev.github.io/CRUDAngularjsApp/index.html#
 
 All logict was implemeted around directives. 
