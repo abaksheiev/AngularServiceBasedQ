@@ -18,7 +18,15 @@ App.Directories.AppTable = function factory() {
                 click: $scope.$parent[a.event],
                 title: a.title,
                 code: a.code,
+                disabled: function (data) {
+                    if ( ['save'].indexOf(a.code) > -1 && !data.isValid()) {
+                        return true;
+                    }
+
+                    return false;
+                },
                 visibility: function (data) {
+
                     if (data.isEdit() && ['edit', 'delete'].indexOf(a.code) > -1) {
                         return false;
                     }
@@ -33,9 +41,9 @@ App.Directories.AppTable = function factory() {
         };
     };
 
-    var _cleanUp=function(){
-        _fields=[];
-        _actions=[];
+    var _cleanUp = function () {
+        _fields = [];
+        _actions = [];
     };
 
     return {

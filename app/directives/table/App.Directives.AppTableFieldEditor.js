@@ -15,7 +15,6 @@ App.Directories.AppTableFieldEditor = function factory($http, $templateCache,$te
         link: function (scope, element, attrs, tabsCtrl) {
             scope.data = scope.$parent.data;
             scope.fieldName = scope.$parent.field.name;
-
         }
     };
 };

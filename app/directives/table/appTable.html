@@ -20,6 +20,7 @@
 
                 <button ng-repeat="action in tableData.actions"
                         ng-show="action.visibility(data)"
+                        ng-disabled="action.disabled(data)"
                         ng-click="action.click(data)"
                         class="btn btn-default btn-sm">
                     {{action.title}}

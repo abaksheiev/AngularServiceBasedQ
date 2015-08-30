@@ -6,10 +6,11 @@ App.Controllers.UserController = function ($scope, $q, userService) {
     var _refresh = function () {
         userService.getAll()
             .then(function (data) {
-                $scope.users = data;
+                $scope.dataSource = data;
             });
     }
     _refresh();
+
     $scope.save = function (item) {
 
         userService
@@ -33,21 +34,21 @@ App.Controllers.UserController = function ($scope, $q, userService) {
     $scope.cancel = function () {
     };
 
-    $scope.edit = function (user) {
+    $scope.edit = function (item) {
 
         var deferredObj = $q.defer();
         var promise = deferredObj.promise;
 
         promise
             .then(function () {
-                for (var i = 0; i < $scope.users.length; i++) {
-                    $scope.users[i].isEdit(false);
+                for (var i = 0; i < $scope.dataSource.length; i++) {
+                    $scope.dataSource[i].isEdit(false);
                 }
             })
             .then(function () {
-                user.isEdit(true);
+                item.isEdit(true);
             }).then(function () {
-                angular.forEach($scope.users, function (value, key) {
+                angular.forEach($scope.dataSource, function (value, key) {
                 });
             });
         deferredObj.resolve();
