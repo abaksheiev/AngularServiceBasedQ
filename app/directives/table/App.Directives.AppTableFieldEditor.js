@@ -1,7 +1,7 @@
-/**
- * Created by Anton on 27.08.2015.
- */
-
+/*********************************************************************
+ * Created by Anton Baksheiev on 27.08.2015.                         *
+ * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
+ *********************************************************************/
 App.Directories.AppTableFieldEditor = function factory($http, $templateCache,$templateRequest) {
     return {
         restrict: 'E',

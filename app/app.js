@@ -34,11 +34,15 @@ myApp.run(function ($templateCache) {
         '<small><b>Author:</b> <i>Baksheiev Anton</i></small>'+
         '</br>' +
         '<small><b>linkedin:</b> ' +
-        '<i><a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a></i>' +
+        '<a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53" target="_blank">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a>' +
         '</small>' +
-        '</br>'
+        '</br>'+
+        '<small><b>github:</b> ' +
+        '<a href="https://github.com/abaksheiev/CRUDAngularjsApp">https://github.com/abaksheiev/CRUDAngularjsApp</a>' +
+        '</small>'
     );
 });
+
 
 myApp.run(function ($templateCache) {
     $templateCache.put('text.html',
