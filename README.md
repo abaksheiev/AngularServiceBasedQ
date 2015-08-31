@@ -1,9 +1,8 @@
-# CRUDAngularjsApp
-Example of base architecture of angular project</br>
+# Smart Browser
+
+Smart Browser is component based on angularjs framework. 
 
 DEMO http://abaksheiev.github.io/CRUDAngularjsApp/index.html#
-
-All logict was implemeted around directives. 
 
 1. Example of using MENU component via html 
 
@@ -15,20 +14,29 @@ All logict was implemeted around directives.
         </app-nav>
 <!-- /Navigation -->
 
-2. Example of using TABLE component via html 
-
+2. In order to use Browser component, will be enough just put following structure and engine will do everything by itself:
 
 <!-- Table -->
-        <app-table source="dataSource">
+<app-browser
+        dataUrl="mockJsonData/data.json"
+        >
 
-            <app-table-field title="#" field="id" type="label"></app-table-field>
-            <app-table-field title="First Name" field="firstName" type="text"></app-table-field>
-            <app-table-field title="Email" field="email" type="text"></app-table-field>
+    <app-browser-field
+            title="#"
+            field="id"
+            type="label"
+            ></app-browser-field>
+    <app-browser-field
+            title="Name"
+            field="name"
+            type="text"
+            required="true"
+            ></app-browser-field>
+    <app-browser-field
+            title="Code"
+            field="code"
+            type="text"
+            ></app-browser-field>
 
-
-            <app-table-action code="edit" click="edit" title="Edit"></app-table-action>
-            <app-table-action code="save" click="save" title="Save"></app-table-action>
-            <app-table-action code="delete" click="delete" title="Delete"></app-table-action>
-
-        </app-table>
+</app-browser>
 <!-- /Table -->
