@@ -19,8 +19,13 @@ myApp.config(function ($routeProvider, $locationProvider) {
         .when('/Companies', {
             templateUrl: 'partials/companiesView.html',
             controller: 'companyController'
-        }).otherwise({
-            redirectTo: '/Users'
+        })
+        .when('/GenericBrowser', {
+            templateUrl: 'partials/browserCountriesView.html',
+            controller: 'browserController'
+        })
+        .otherwise({
+            redirectTo: '/GenericBrowser'
         }
     );
 
@@ -31,12 +36,12 @@ myApp.config(function ($routeProvider, $locationProvider) {
 
 myApp.run(function ($templateCache) {
     $templateCache.put('info.html',
-        '<small><b>Author:</b> <i>Baksheiev Anton</i></small>'+
+        '<small><b>Author:</b> <i>Baksheiev Anton</i></small>' +
         '</br>' +
         '<small><b>linkedin:</b> ' +
         '<a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53" target="_blank">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a>' +
         '</small>' +
-        '</br>'+
+        '</br>' +
         '<small><b>github:</b> ' +
         '<a href="https://github.com/abaksheiev/CRUDAngularjsApp">https://github.com/abaksheiev/CRUDAngularjsApp</a>' +
         '</small>'

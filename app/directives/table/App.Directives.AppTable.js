@@ -73,7 +73,6 @@ App.Directories.AppTable = function factory() {
         }
  }
 
-
     return {
         restrict: 'E',
         templateNamespace: 'html',

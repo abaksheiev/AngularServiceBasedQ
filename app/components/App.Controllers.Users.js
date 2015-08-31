@@ -2,15 +2,21 @@
  * Created by Anton on 26.08.2015.
  */
 App.Controllers.UserController = function ($scope, $q, userService) {
-$scope.totalRecords = 0;
+    var currentPageIndex = 1;
+
+    $scope.totalRecords = 0;
+
 
     var _refresh = function () {
         userService
             .fillMockRecord()
             .then(function (dataFull) {
                 $scope.totalRecords = dataFull.length;
+                //  $scope.dataSource = dataFull;
             });
     };
+
+    var _
 
     _refresh();
 
@@ -57,12 +63,14 @@ $scope.totalRecords = 0;
         deferredObj.resolve();
     }
 
-    $scope.goToPage=function(perPage, pageIndex){
-
+    $scope.goToPage = function (perPage, pageIndex) {
+        currentPageIndex = pageIndex;
+        perPage = perPage;
         userService.getRecordsByPageIndex(perPage, pageIndex)
+
             .then(function (data) {
                 $scope.dataSource = [];
-                $scope.dataSource=data
+                $scope.dataSource = data;
             });
     }
 

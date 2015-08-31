@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/CRUDAngularjsApp/">
+    <base href="/AngularServiceBasedQ/">
     <meta charset="UTF-8">
     <title>Simple example of using $q with Angular 1.4.4</title>
 
@@ -22,26 +22,23 @@
 <div class="well" ng-include=" 'info.html' "></div>
 <!-- /info -->
 
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-
         <!-- Navigation -->
         <app-nav>
+            <app-nav-item text="Generic Browser" method="genericBrowser"></app-nav-item>
             <app-nav-item text="Users" method="showUsers"></app-nav-item>
             <app-nav-item text="Companies" method="showCompanies"></app-nav-item>
             <app-nav-item text="Countries" method="showCountries"></app-nav-item>
         </app-nav>
         <!-- /Navigation -->
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div ng-view></div>
     </div>
     <div class="col-md-1"></div>
 </div>
 
-<div ng-view></div>
-
 <script language="javascript">
-
-
     var App = {
         Controllers: {},
         Services: {},
@@ -49,7 +46,17 @@
         Models: {},
         Directories: {}
     };
+/* declare namespaces for generic browser */
+    App.Browser={}
 </script>
+
+<script src="app/components/browser/App.Browser.Controller.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowser.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowserField.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowserFieldEditor.js"></script>
+<script src="app/components/browser/App.Browser.DataService.js"></script>
+<script src="app/components/browser/App.Browser.DataVMService.js"></script>
+
 <!-- Directives -->
 <script src="app/directives/navigation/App.Directives.AppNavItem.js"></script>
 <script src="app/directives/navigation/App.Directives.AppNav.js"></script>
@@ -76,8 +83,6 @@
 <script src="app/components/App.Controllers.Countries.js"></script>
 
 <script src="app/components/App.Controllers.Navigation.js"></script>
-
-
 
 <modalDialog></modalDialog>
 </body>

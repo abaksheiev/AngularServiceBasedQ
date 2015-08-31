@@ -17,6 +17,11 @@ App.Controllers.NavigationController = function ($scope,$location,$window) {
         $location.path('/Companies')
         return false;
     };
+
+    $scope.genericBrowser=function(){
+        $location.path('/GenericBrowser')
+        return false;
+    }
 };
 
 App.Controllers.NavigationController.$inject = ['$scope','$location','$window'];
