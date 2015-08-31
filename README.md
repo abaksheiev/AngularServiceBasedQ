@@ -18,9 +18,7 @@ DEMO http://abaksheiev.github.io/CRUDAngularjsApp/index.html#
 
 <!-- Table -->
 <app-browser
-        dataUrl="mockJsonData/data.json"
-        >
-
+        dataUrl="mockJsonData/data.json">
     <app-browser-field
             title="#"
             field="id"
@@ -37,6 +35,5 @@ DEMO http://abaksheiev.github.io/CRUDAngularjsApp/index.html#
             field="code"
             type="text"
             ></app-browser-field>
-
 </app-browser>
 <!-- /Table -->
