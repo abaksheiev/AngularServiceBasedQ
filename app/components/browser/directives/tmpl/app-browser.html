@@ -1,0 +1,40 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+        <th width="200px" ng-repeat="column in columns">{{column.title}}</th>
+        <th width="150px"></th>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="data in dataSource">
+            <td ng-repeat="column in columns">
+
+                <span ng-show="!data.isEdit()">{{data[column.field]}}</span>
+
+                <span ng-switch on="column.type">
+                    <app-browser-field-editor  ng-switch-when="label" type="label"></app-browser-field-editor>
+                    <app-browser-field-editor  ng-switch-when="checkbox" type="checkbox"></app-browser-field-editor>
+                    <app-browser-field-editor  ng-switch-when="text" type="text"></app-browser-field-editor>
+                </span>
+
+            </td>
+            <td>
+                {{data.isEdit()}}
+            </td>
+            <td>
+                <button ng-click="data.isEdit(true)"
+                        class="btn btn-default btn-sm">
+                     Edit
+                </button>
+                <button ng-click="data.isEdit(false)"
+                        class="btn btn-default btn-sm">
+                    Save
+                </button>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <div ng-transclude></div>
+</div>

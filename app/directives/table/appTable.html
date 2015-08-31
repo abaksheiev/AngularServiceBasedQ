@@ -1,0 +1,38 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+        <th ng-repeat="column in tableData.fields">{{column.title}}</th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in source">
+            <td ng-repeat="field in tableData.fields">
+
+                <span ng-show="!data.isEdit()">{{data[field.name]}}</span>
+
+                <span ng-switch on="field.type">
+                    <app-table-field-editor  ng-switch-when="checkbox" type="checkbox"></app-table-field-editor>
+                    <app-table-field-editor  ng-switch-when="text" type="text"></app-table-field-editor>
+                </span>
+
+            </td>
+            <td>
+
+                <button ng-repeat="action in tableData.actions"
+                        ng-show="action.visibility(data)"
+                        ng-disabled="action.disabled(data)"
+                        ng-click="action.click(data)"
+                        class="btn btn-default btn-sm">
+                    {{action.title}}
+                </button>
+
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <ul class="pager">
+            <li ng-repeat="page in tableData.pages" ng-click="page.click(page)" href="" ng-class="{active:page.active}">{{page.title}} </li>
+        </ul>
+    </div>
+    <div ng-transclude></div>
+</div>

@@ -1,20 +1,23 @@
 /**
- * Created by Anton on 27.08.2015.
+ * Created by Anton on 29.08.2015.
  */
-App.Models.UserVM = function (item) {
+App.Models.CountryVM = function (item) {
+
     var _id,
-        _firstName,
-        _email,
+        _name,
+        _code,
         _isValid,
         _checked,
         _isInit
 
+
     var _isEditValue = false;
 
-    var _createUserVMFromUser = function (user) {
-        _id = user.id;
-        _firstName = user.name === null ? '' : user.name;
-        _email = user.email === null ? '' : user.email;
+    var _createCountryVMFromCountry = function (country) {
+        _id = country.id;
+        _name = country.name;
+        _code = country.code;
+
         _isInit = true;
     }
 
@@ -36,7 +39,7 @@ App.Models.UserVM = function (item) {
         if(!_isInit){
             return true;
         }
-        var fields = ['firstName', 'email'];
+        var fields = ['name', 'code'];
         for(var i=0;i<fields.length;i++){
             if(!this.isFieldValid(fields[i])){
                 return false;
@@ -47,18 +50,19 @@ App.Models.UserVM = function (item) {
     }
 
     //Import data
-    _createUserVMFromUser(item);
+    _createCountryVMFromCountry(item);
 
     return {
         id: _id,
-        firstName: _firstName,
-        email: _email,
+        name: _name,
+        code: _code,
         checked: _checked,
 
-        createUserVMFromUser: _createUserVMFromUser,
+        createCompanyVMFromCompany: _createCountryVMFromCountry,
 
         isEdit: _isEdit,
         isFieldValid: _isFieldValid,
         isValid: _isValid
+
     }
 };

@@ -1,0 +1,6 @@
+
+<span ng-show="data.isEdit()">
+    <input type="text" placeholder="input" ng-model="data[fieldName]"
+           ng-class="{ invalidValue :!data.isFieldValid(fieldName)}"
+           value="{{data[fieldName]}}">
+</span>

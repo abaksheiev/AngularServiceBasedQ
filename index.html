@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/CRUDAngularjsApp/">
     <meta charset="UTF-8">
     <title>Simple example of using $q with Angular 1.4.4</title>
 
@@ -10,116 +11,79 @@
     <link href="content/css/app.css" rel="stylesheet">
 
     <script src="node_modules/angular/angular.min.js" language="JavaScript"></script>
+    <script src="node_modules/angular-route/angular-route.min.js" language="JavaScript1.2"></script>
 
     <script src="app/app.js" language="JavaScript"></script>
+
 </head>
 <body ng-app="app">
 
-<div class="well">
-    <p>SPA</p>
-    <p>FronEnd => AngularJs + bootstrap</p>
-    <p> BackEnd => windows.localstorage</p>
-    <small><b>Author:</b> <i>Baksheiev Anton</i></small></br>
-    <small><b>linkedin:</b> <i><a href="https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53">https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53</a></i></small></br>
-</div>
+<!-- info -->
+<div class="well" ng-include=" 'info.html' "></div>
+<!-- /info -->
 
+        <!-- Navigation -->
+        <app-nav>
+            <app-nav-item text="Generic Browser" method="genericBrowser"></app-nav-item>
+            <app-nav-item text="Users" method="showUsers"></app-nav-item>
+            <app-nav-item text="Companies" method="showCompanies"></app-nav-item>
+            <app-nav-item text="Countries" method="showCountries"></app-nav-item>
+        </app-nav>
+        <!-- /Navigation -->
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-
-        <app-nav>
-            <app-nav-item text="Add" actionCode="userAdd"></app-nav-item>
-            <app-nav-item text="Edit" actionCode="userEdit"></app-nav-item>
-            <app-nav-item text="Delete" actionCode="userDelete"></app-nav-item>
-            <app-nav-item text="Fill Mock Data" actionCode="userFillMockData"></app-nav-item>
-        </app-nav>
-
-    </div>
-
-    <div class="col-md-1"></div>
-</div>
-<div class="row" ng-controller="userController">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="u in users">
-                <div ng-show="1">
-                    <td>
-                        <span>{{u.id}}</span>
-                    </td>
-                    <td>
-                        <span ng-show="!u.isEdit()">{{u.firstName}}</span>
-                        <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="First Name" ng-model="u.firstName"
-                                   ng-class="{'invalidValue':!u.isValid()}"
-                                   value="{{u.firstName}}">
-                        </span>
-                    </td>
-                    <td>
-                        <span ng-show="!u.isEdit()">{{u.lastName}}</span>
-                        <span ng-show="u.isEdit()">
-                            <input type="text" placeholder="Lasst Name" ng-model="u.lastName"
-                                   ng-class="{'invalidValue':!u.isValid()}"
-                                   value="{{u.lastName}}">
-                        </span>
-                    </td>
-                    <td>
-                        <button type="button" ng-show="u.isEdit()" ng-click="save(u)" class="btn btn-default btn-sm">
-                            Save
-                        </button>
-
-                        <button type="button" ng-show="!u.isEdit()" ng-click="edit(u)" class="btn btn-default btn-sm">
-                            Edit
-                        </button>
-                        <button type="button" ng-show="!u.isEdit()" ng-click="delete(u)" class="btn btn-default btn-sm">
-                            Delete
-                        </button>
-                    </td>
-                </div>
-            </tr>
-
-            </tbody>
-        </table>
+        <div ng-view></div>
     </div>
     <div class="col-md-1"></div>
 </div>
-
 
 <script language="javascript">
-    App = {
+    var App = {
         Controllers: {},
         Services: {},
         Common: {},
         Models: {},
         Directories: {}
     };
+/* declare namespaces for generic browser */
+    App.Browser={}
 </script>
+
+<script src="app/components/browser/App.Browser.Controller.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowser.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowserField.js"></script>
+<script src="app/components/browser/directives/App.Browser.Directories.AppBrowserFieldEditor.js"></script>
+<script src="app/components/browser/App.Browser.DataService.js"></script>
+<script src="app/components/browser/App.Browser.DataVMService.js"></script>
+
 <!-- Directives -->
 <script src="app/directives/navigation/App.Directives.AppNavItem.js"></script>
 <script src="app/directives/navigation/App.Directives.AppNav.js"></script>
 
+<script src="app/directives/table/App.Directives.AppTable.js"></script>
+<script src="app/directives/table/App.Directives.AppTableField.js"></script>
+<script src="app/directives/table/App.Directives.AppTableAction.js"></script>
+<script src="app/directives/table/App.Directives.AppTableFieldEditor.js"></script>
 
+<script src="app/directives/modalDialog/App.Directives.ModalDialog.js"></script>
 <!-- ViewModels-->
 <script src="app/models/App.Models.UserVM.js"></script>
-
-<!-- Data Base-->
-<script src="app/Common/App.Common.UserStorageService.js"></script>
+<script src="app/models/App.Models.CompanyVM.js"></script>
+<script src="app/models/App.Models.CountryVM.js"></script>
 
 <!-- Services-->
 <script src="app/services/App.Services.UserService.js"></script>
-<script src="app/services/App.Services.Navigation.js"></script>
+<script src="app/services/App.Services.CompanyService.js"></script>
+<script src="app/services/App.Services.CountryService.js"></script>
 
 <!-- Controllers-->
 <script src="app/components/App.Controllers.Users.js"></script>
+<script src="app/components/App.Controllers.Companies.js"></script>
+<script src="app/components/App.Controllers.Countries.js"></script>
+
 <script src="app/components/App.Controllers.Navigation.js"></script>
 
+<modalDialog></modalDialog>
 </body>
 </html>

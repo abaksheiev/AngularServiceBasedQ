@@ -1,49 +1,80 @@
 /**
  * Created by Anton on 26.08.2015.
  */
-App.Controllers.UserController = function ($scope, userService) {
-    $scope.users = userService.getAll();
+App.Controllers.UserController = function ($scope, $q, userService) {
+    var currentPageIndex = 1;
+
+    $scope.totalRecords = 0;
+
+
+    var _refresh = function () {
+        userService
+            .fillMockRecord()
+            .then(function (dataFull) {
+                $scope.totalRecords = dataFull.length;
+                //  $scope.dataSource = dataFull;
+            });
+    };
+
+    var _
+
+    _refresh();
 
     $scope.save = function (item) {
-        userService.save(item);
-        $scope.users = userService.getAll();
+
+        userService
+            .save(item)
+            .then(function () {
+                item.isEdit(false);
+
+            })
+            .then(_refresh);
     };
 
     $scope.delete = function (item) {
-        userService.delete(item.id);
-        $scope.users = userService.getAll();
+        userService.delete(item.id)
+            .then(function () {
+                item.isEdit(false);
+            })
+            .then(_refresh);
+        ;
     };
 
     $scope.cancel = function () {
-        console.log(arguments);
     };
 
-    $scope.edit = function (user) {
-        user.isEdit(true);
+    $scope.edit = function (item) {
+
+        var deferredObj = $q.defer();
+        var promise = deferredObj.promise;
+
+        promise
+            .then(function () {
+                for (var i = 0; i < $scope.dataSource.length; i++) {
+                    $scope.dataSource[i].isEdit(false);
+                }
+            })
+            .then(function () {
+                item.isEdit(true);
+            }).then(function () {
+                angular.forEach($scope.dataSource, function (value, key) {
+                });
+            });
+        deferredObj.resolve();
     }
 
-    $scope.$on('userAdd', function () {
-        userService.save({
-            id: null,
-            firstName: null,
-            lastName: null
-        });
+    $scope.goToPage = function (perPage, pageIndex) {
+        currentPageIndex = pageIndex;
+        perPage = perPage;
+        userService.getRecordsByPageIndex(perPage, pageIndex)
 
-        $scope.users = userService.getAll();
+            .then(function (data) {
+                $scope.dataSource = [];
+                $scope.dataSource = data;
+            });
+    }
 
-    });
-    $scope.$on('userEdit', function () {
-        alert('userEdit');
-    });
-
-    $scope.$on('userDelete', function () {
-        console.log(arguments);
-    });
-
-    $scope.$on('userFillMockData', function(){
-        userService.fillTestData();
-    });
 };
 
-App.Controllers.UserController.$inject = ['$scope', 'userService'];
+App.Controllers.UserController.$inject = ['$scope', '$q', 'userService'];
 myApp.controller('userController', App.Controllers.UserController);

@@ -1,27 +1,29 @@
 /**
  * Created by Anton on 26.08.2015.
  */
-App.Controllers.NavigationController = function ($scope, navigationService) {
+App.Controllers.NavigationController = function ($scope,$location,$window) {
 
-    $scope.userProxyEvents = {
-        userAdd: function () {
-            navigationService.go('userAdd');
-        },
-
-        userEdit: function () {
-            navigationService.go('userEdit');
-        },
-
-        userDelete: function () {
-            navigationService.go('userDelete');
-        },
-        userFillMockData: function(){
-            navigationService.go('userFillMockData');
-        }
+    $scope.showUsers=function(){
+        $location.path('/Users')
+        return false;
     };
 
+    $scope.showCountries=function(){
+        $location.path('/Countries')
+        return false;
+    };
+
+    $scope.showCompanies=function(){
+        $location.path('/Companies')
+        return false;
+    };
+
+    $scope.genericBrowser=function(){
+        $location.path('/GenericBrowser')
+        return false;
+    }
 };
 
-App.Controllers.NavigationController.$inject = ['$scope','navigationService'];
+App.Controllers.NavigationController.$inject = ['$scope','$location','$window'];
 
 myApp.controller('navigationController', App.Controllers.NavigationController);
