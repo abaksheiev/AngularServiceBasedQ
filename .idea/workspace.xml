@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fad180b0-2817-40a7-8e9b-599cfcc9167b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/browser/directives/App.Browser.Directories.AppBrowser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/browser/models/App.Browser.Models.EntityVM.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/partials/browserCountriesView.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/browser/directives/tmpl/cntrs/checkbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/App.Controllers.Navigation.js" afterPath="$PROJECT_DIR$/app/components/App.Controllers.Navigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/App.Controllers.Users.js" afterPath="$PROJECT_DIR$/app/components/App.Controllers.Users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/table/App.Directives.AppTable.js" afterPath="$PROJECT_DIR$/app/directives/table/App.Directives.AppTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/angular/angular.js" afterPath="$PROJECT_DIR$/node_modules/angular/angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/bootstrap/less/glyphicons.less" afterPath="$PROJECT_DIR$/node_modules/bootstrap/less/glyphicons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/bootstrap/grunt/sauce_browsers.yml" afterPath="$PROJECT_DIR$/node_modules/bootstrap/grunt/sauce_browsers.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/browserCountriesView.html" afterPath="$PROJECT_DIR$/partials/browserCountriesView.html" />
     </list>
     <ignored path="AngularServiceBasedQ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +26,18 @@
       <file leaf-file-name="browserCountriesView.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/browserCountriesView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7071057">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app-browser.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app-browser.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/browser/directives/tmpl/app-browser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29462737">
+            <state vertical-scroll-proportion="-6.5384617">
               <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
@@ -125,16 +123,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="text.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/directives/table/editorFields/text.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="3" column="55" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -194,7 +182,6 @@
         <option value="$PROJECT_DIR$/app/components/browser/directives/App.Browser.Directories.AppBrowser.js" />
         <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/partials/browserCountriesView.html" />
         <option value="$PROJECT_DIR$/app/components/browser/directives/App.Browser.Directories.AppBrowserField.js" />
         <option value="$PROJECT_DIR$/app/components/browser/App.Browser.Controller.js" />
         <option value="$PROJECT_DIR$/app/components/browser/directives/tmpl/cntrs/text.html" />
@@ -203,6 +190,7 @@
         <option value="$PROJECT_DIR$/app/components/browser/directives/App.Browser.Directories.AppBrowserFieldEditor.js" />
         <option value="$PROJECT_DIR$/app/components/browser/directives/tmpl/cntrs/label.html" />
         <option value="$PROJECT_DIR$/app/components/browser/directives/tmpl/app-browser.html" />
+        <option value="$PROJECT_DIR$/partials/browserCountriesView.html" />
       </list>
     </option>
   </component>
@@ -643,8 +631,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1864" height="1098" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1864" height="1098" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27951676" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -656,7 +644,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24931356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32805908" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -968,14 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="55" column="92" selection-start-line="55" selection-start-column="92" selection-end-line="55" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/directives/table/appTable.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
@@ -1022,14 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384">
           <caret line="3" column="55" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partials/browserCountriesView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1092,8 +1064,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/browser/directives/tmpl/app-browser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29462737">
+        <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/browserCountriesView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7071057">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
