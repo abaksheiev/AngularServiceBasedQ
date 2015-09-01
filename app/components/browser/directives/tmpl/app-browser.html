@@ -19,29 +19,31 @@
 
             </td>
             <td>
-                <button ng-click="edit(data)"
-                        ng-show="!data.isEdit()"
-                        class="btn btn-default btn-sm">
-                    Edit
-                </button>
 
                 <button ng-click="save(data)"
                         ng-disabled="!data.isValid()"
                         ng-show="data.isEdit()"
                         class="btn btn-default btn-sm">
-                    Save
+                    {{ 'SAVE' | translate }}
                 </button>
 
                 <button ng-click="cancel(data)"
                         ng-show="data.isEdit()"
                         class="btn btn-default btn-sm">
-                    Cancel
+                    {{ 'CANCEL' | translate }}
+                </button>
+
+
+                <button ng-click="edit(data)"
+                        ng-show="!isEditMode() && !data.isEdit()"
+                        class="btn btn-default btn-sm">
+                    {{ 'EDIT' | translate }}
                 </button>
 
                 <button ng-click="delete(data)"
-                        ng-show="!data.isEdit()"
+                        ng-show="!isEditMode() && !data.isEdit()"
                         class="btn btn-default btn-sm">
-                    Delete
+                    {{ 'DELETE' | translate }}
                 </button>
 
             </td>
@@ -49,11 +51,12 @@
         </tbody>
 
     </table>
-                <ul class="pager">
-                    <li ng-repeat="page in pages" ng-click="goToPage(page.index)" href=""
-                        ng-class="{active:page.isCurrent}">{{page.title}}
-                    </li>
-                </ul>
+
+    <ul class="pager">
+        <li ng-repeat="page in pages" ng-click="goToPage(page.index)" href=""
+            ng-class="{active:page.isCurrent}">{{page.title}}
+        </li>
+    </ul>
 
     <div ng-transclude></div>
 

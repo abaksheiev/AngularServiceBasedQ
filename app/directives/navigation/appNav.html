@@ -1,8 +1,17 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" ng-transclude>
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menu in menus">
+                    <a ng-click='go(menu.code)' href=''>{{menu.title}}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav language-container">
+                <li ng-repeat="lng in languages"  >
+                    <a href=""><img class="{{lng.class}}" ng-class="{active:lng.code==getLanguage()}" ng-click="setLanguage(lng.code)"/></a>
+                </li>
             </ul>
         </div>
     </div>
+    <div  ng-transclude></div>
 </nav>

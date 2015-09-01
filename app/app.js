@@ -1,9 +1,10 @@
-/**
- * Created by Anton on 26.08.2015.
- */
+/*********************************************************************
+ * Created by Anton Baksheiev on 26.08.2015.                         *
+ * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
+ *********************************************************************/
 
 var myApp = angular.module('app',
-    ['ngRoute']);
+    ['ngRoute', 'pascalprecht.translate']);
 
 myApp.config(function ($routeProvider, $locationProvider) {
 
@@ -49,22 +50,47 @@ myApp.run(function ($templateCache) {
 });
 
 
-myApp.run(function ($templateCache) {
-    $templateCache.put('text.html',
-        '<span ng-show="data.isEdit()">' +
-        '    <input type="text" ' +
-        '           placeholder="input" ' +
-        '           ng-model="data[fieldName]"' +
-        '           ng-class=""{"invalidValue":!data.isValid()}""' +
-        '           value="{{data[fieldName]}}">' +
-        '</span>'
-    )
-});
+myApp.config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.translations('en', {
+        'EDIT': 'Edit',
+        'DELETE': 'Delete',
+        'SAVE': 'Save',
+        'CANCEL': 'Cancel',
+        'USERS':'Users',
+        'COMPANIES':'Companies',
+        'COUNTRIES':'Countries'
+    });
 
-myApp.run(function ($templateCache) {
-    $templateCache.put('checkbox.html',
-        '<span ng-show="data.isEdit()">' +
-        '     <input type="checkbox" checked/>' +
-        '</span>'
-    )
-});
+    $translateProvider.translations('ru', {
+        'EDIT': 'Редактировать',
+        'DELETE': 'Удалить',
+        'SAVE': 'Coхранить',
+        'CANCEL': 'Отмена',
+        'USERS':'Клиееты',
+        'COMPANIES':'Компании',
+        'COUNTRIES':'Страны'
+    });
+
+    $translateProvider.translations('pl', {
+        'EDIT': 'Edycja',
+        'DELETE': 'Usu?',
+        'SAVE': 'Zapisz',
+        'CANCEL': 'Anuluj',
+        'USERS':'Klienci',
+        'COMPANIES':'Sp??ki',
+        'COUNTRIES':'Kraje'
+    });
+
+    $translateProvider.translations('de', {
+        'EDIT': "Bearbeiten",
+        "DELETE": "L?schen",
+        "SAVE": "Speichern",
+        "CANCEL": 'Abbrechen',
+        'USERS':'Nutzer',
+        'COMPANIES':'Unternehmen',
+        'COUNTRIES':'Land'
+    });
+
+    $translateProvider.preferredLanguage('de');
+
+}]);

@@ -11,6 +11,8 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     var _pages = [];
     var _pageMarge = 5;
 
+    var _isEditMode = false;
+
     var _refresh = function () {
         dataService
             .getData({
@@ -27,7 +29,9 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     }
 
     var _edit = function (item) {
-        angular.forEach($scope.dataSource,function(item){
+        _isEditMode = true;
+
+        angular.forEach($scope.dataSource, function (item) {
             item.isEdit(false);
         })
         item.saveState()
@@ -41,10 +45,12 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     };
 
     var _save = function (item) {
+        _isEditMode = false;
         item.isEdit(false);
     }
 
     var _cancel = function (item) {
+        _isEditMode = false;
         item.revertState()
         item.isEdit(false);
     }
@@ -103,6 +109,10 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
         _refresh()
     }
 
+    var _getIsEditMode = function(){
+        return _isEditMode;
+    }
+
     $scope.edit = _edit;
     $scope.save = _save;
     $scope.delete = _delete;
@@ -111,6 +121,7 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     $scope.addColumn = _addColumn;
     $scope.init = _init;
 
+    $scope.isEditMode = _getIsEditMode;
     $scope.loadData = _loadData;
     $scope.goToPage = _goToPage;
     $scope.columns = _columns;

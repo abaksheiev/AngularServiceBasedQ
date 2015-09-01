@@ -1,12 +1,11 @@
-/**
- * Created by Anton on 28.08.2015.
- */
+/*********************************************************************
+ * Created by Anton Baksheiev on 28.08.2015.                         *
+ * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
+ *********************************************************************/
+
 App.Controllers.ModalDialogController = function ($scope) {
-    $scope.alert=function(){
 
-    };
-
-    $scope.confirmation=function(fnOk,fnCancel){
+    $scope.confirmation = function (fnOk, fnCancel) {
 
     }
 };

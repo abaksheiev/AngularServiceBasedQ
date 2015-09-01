@@ -4,19 +4,13 @@
 App.Directories.AppNavItem = function factory() {
     var directiveDefinitionObject = {
         restrict: 'E',
-        replace: true,
         require: '^appNav',
         transclude: true,
-        scope: {},
-        template: function (tElement, tAttrs) {
-            return "<li><a ng-click='wrapperGo()' href=''>" + tAttrs.text + "</a></li>";
-        },
         link: function (scope, tElement, tAttrs, contrl) {
-            var codeAction = tAttrs.method;
+            var text = tAttrs.text;
+            var method = tAttrs.method;
 
-            scope.wrapperGo = function () {
-                scope.$parent[codeAction]();
-            };
+            scope.addMenuItem(text, method)
         }
     };
 
