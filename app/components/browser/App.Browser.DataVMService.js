@@ -4,11 +4,14 @@
  *********************************************************************/
 App.Browser.DataVMService = function () {
     var _getVM = function (columns) {
+
         var vm = {};
         var _fields = [];
         var _validationAttr = {};
 
         var _isEdit = false;
+
+        var _state={};
 
         // create fields
         for (var i = 0; i < columns.length; i++) {
@@ -40,6 +43,7 @@ App.Browser.DataVMService = function () {
 
         //Validation
         vm['isFieldValid'] = function (name) {
+
             var isRequired = _validationAttr[name]['required'];
             if (isRequired) {
                 if (this[name].length === 0) {
@@ -49,6 +53,20 @@ App.Browser.DataVMService = function () {
 
             return true;
         };
+
+        vm['saveState'] = function(){
+            for (var i = 0; i < _fields.length; i++) {
+                var index = i;
+                _state[_fields[index]] = this[_fields[index]];
+            }
+        }
+
+        vm['revertState']=function(){
+            for (var i = 0; i < _fields.length; i++) {
+                var index = i;
+                this[_fields[index]] = _state[_fields[index]];
+            }
+        }
 
         return vm;
     };
@@ -68,3 +86,21 @@ App.Browser.DataVMService = function () {
 App.Browser.DataVMService.$inject = [];
 
 myApp.factory('App.Browser.DataVMService', App.Browser.DataVMService);
+
+/*
+* var _isValid = function () {
+ if(!_isInit){
+ return true;
+ }
+ var fields = ['firstName', 'email'];
+ for(var i=0;i<fields.length;i++){
+ if(!this.isFieldValid(fields[i])){
+ return false;
+ }
+ }
+
+ return true;
+ }
+*
+*
+* */

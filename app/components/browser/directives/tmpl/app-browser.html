@@ -12,23 +12,35 @@
                 <span ng-show="!data.isEdit()">{{data[column.field]}}</span>
 
                 <span ng-switch on="column.type">
-                    <app-browser-field-editor  ng-switch-when="label" type="label"></app-browser-field-editor>
-                    <app-browser-field-editor  ng-switch-when="checkbox" type="checkbox"></app-browser-field-editor>
-                    <app-browser-field-editor  ng-switch-when="text" type="text"></app-browser-field-editor>
+                    <app-browser-field-editor ng-switch-when="label" type="label"></app-browser-field-editor>
+                    <app-browser-field-editor ng-switch-when="checkbox" type="checkbox"></app-browser-field-editor>
+                    <app-browser-field-editor ng-switch-when="text" type="text"></app-browser-field-editor>
                 </span>
 
             </td>
             <td>
-                {{data.isEdit()}}
-            </td>
-            <td>
-                <button ng-click="data.isEdit(true)"
+                <button ng-click="edit(data)"
+                        ng-show="!data.isEdit()"
                         class="btn btn-default btn-sm">
-                     Edit
+                    Edit
                 </button>
-                <button ng-click="data.isEdit(false)"
+
+                <button ng-click="save(data)"
+                        ng-show="data.isEdit()"
                         class="btn btn-default btn-sm">
                     Save
+                </button>
+
+                <button ng-click="cancel(data)"
+                        ng-show="data.isEdit()"
+                        class="btn btn-default btn-sm">
+                    Cancel
+                </button>
+
+                <button ng-click="delete(data)"
+                        ng-show="!data.isEdit()"
+                        class="btn btn-default btn-sm">
+                    Delete
                 </button>
 
             </td>
@@ -36,5 +48,18 @@
         </tbody>
 
     </table>
+    <div>
+        <div>
+            <ul class="pager">
+                <li ng-repeat="page in totalPages" ng-click="goToPage(page)" href=""
+                    ng-class="{active:$index+1 == page}">{{page}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
     <div ng-transclude></div>
+
 </div>

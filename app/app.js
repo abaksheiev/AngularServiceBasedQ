@@ -9,23 +9,23 @@ myApp.config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/Users', {
-            templateUrl: 'partials/usersView.html',
-            controller: 'userController'
+            templateUrl: 'partials/browserUsersView.html',
+            controller: 'browserController'
         })
         .when('/Countries', {
-            templateUrl: 'partials/countriesView.html',
-            controller: 'countryController'
+            templateUrl: 'partials/browserCountriesView.html',
+            controller: 'browserController'
         })
         .when('/Companies', {
-            templateUrl: 'partials/companiesView.html',
-            controller: 'companyController'
+            templateUrl: 'partials/browserCompaniesView.html',
+            controller: 'browserController'
         })
         .when('/GenericBrowser', {
             templateUrl: 'partials/browserCountriesView.html',
             controller: 'browserController'
         })
         .otherwise({
-            redirectTo: '/GenericBrowser'
+            redirectTo: '/Countries'
         }
     );
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/CRUDAngularjsApp/">
+    <base href="/AngularServiceBasedQ/">
     <meta charset="UTF-8">
     <title>Simple example of using $q with Angular 1.4.4</title>
 
@@ -24,7 +24,6 @@
 
         <!-- Navigation -->
         <app-nav>
-            <app-nav-item text="Generic Browser" method="genericBrowser"></app-nav-item>
             <app-nav-item text="Users" method="showUsers"></app-nav-item>
             <app-nav-item text="Companies" method="showCompanies"></app-nav-item>
             <app-nav-item text="Countries" method="showCountries"></app-nav-item>
@@ -54,6 +53,7 @@
 <script src="app/components/browser/directives/App.Browser.Directories.AppBrowser.js"></script>
 <script src="app/components/browser/directives/App.Browser.Directories.AppBrowserField.js"></script>
 <script src="app/components/browser/directives/App.Browser.Directories.AppBrowserFieldEditor.js"></script>
+
 <script src="app/components/browser/App.Browser.DataService.js"></script>
 <script src="app/components/browser/App.Browser.DataVMService.js"></script>
 
@@ -61,26 +61,7 @@
 <script src="app/directives/navigation/App.Directives.AppNavItem.js"></script>
 <script src="app/directives/navigation/App.Directives.AppNav.js"></script>
 
-<script src="app/directives/table/App.Directives.AppTable.js"></script>
-<script src="app/directives/table/App.Directives.AppTableField.js"></script>
-<script src="app/directives/table/App.Directives.AppTableAction.js"></script>
-<script src="app/directives/table/App.Directives.AppTableFieldEditor.js"></script>
-
 <script src="app/directives/modalDialog/App.Directives.ModalDialog.js"></script>
-<!-- ViewModels-->
-<script src="app/models/App.Models.UserVM.js"></script>
-<script src="app/models/App.Models.CompanyVM.js"></script>
-<script src="app/models/App.Models.CountryVM.js"></script>
-
-<!-- Services-->
-<script src="app/services/App.Services.UserService.js"></script>
-<script src="app/services/App.Services.CompanyService.js"></script>
-<script src="app/services/App.Services.CountryService.js"></script>
-
-<!-- Controllers-->
-<script src="app/components/App.Controllers.Users.js"></script>
-<script src="app/components/App.Controllers.Companies.js"></script>
-<script src="app/components/App.Controllers.Countries.js"></script>
 
 <script src="app/components/App.Controllers.Navigation.js"></script>
 
