@@ -48,17 +48,11 @@
         </tbody>
 
     </table>
-    <div>
-        <div>
-            <ul class="pager">
-                <li ng-repeat="page in totalPages" ng-click="goToPage(page)" href=""
-                    ng-class="{active:$index+1 == page}">{{page}}
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
+                <ul class="pager">
+                    <li ng-repeat="page in pages" ng-click="goToPage(page.index)" href=""
+                        ng-class="{active:page.isCurrent}">{{page.title}}
+                    </li>
+                </ul>
 
     <div ng-transclude></div>
 

@@ -9,6 +9,7 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     var _perPage = 10;
     var _currentPageIndex = 1;
     var _pages = [];
+    var _pageMarge = 5;
 
     var _refresh = function () {
         dataService
@@ -19,8 +20,10 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
             .then(function (data) {
                 $scope.dataSource = data;
             })
-            .then(function(){
-                var total = dataService.data.length;
+            .then(function () {
+                //TODO: add interface in order to get total records
+                var totalRecords = dataService.data.length;
+                _fillPages(totalRecords);
             });
     }
 
@@ -75,6 +78,31 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
         return _columns;
     }
 
+    var _fillPages = function (totalRecords) {
+        _pages.length = 0;
+        ;
+        var pageCount = Math.floor(totalRecords / _perPage);
+        var min = _currentPageIndex - _pageMarge
+        var max = _currentPageIndex + _pageMarge;
+
+        for (var i = min; i <= max; i++) {
+            var _title = i;
+            if (i > 0 && i < pageCount) {
+                _pages.push({
+                    title: _title,
+                    index: _title,
+                    isCurrent: _title == _currentPageIndex
+                });
+            }
+        }
+
+    }
+
+    var _goToPage = function (index) {
+        _currentPageIndex = index;
+        _refresh()
+    }
+
     $scope.edit = _edit;
     $scope.save = _save;
     $scope.delete = _delete;
@@ -84,7 +112,7 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     $scope.init = _init;
 
     $scope.loadData = _loadData;
-
+    $scope.goToPage = _goToPage;
     $scope.columns = _columns;
 
     $scope.pages = _pages;
