@@ -14,8 +14,7 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     var _refresh = function () {
         dataService
             .getData({
-                perPage: _perPage,
-                currentPageIndex: _currentPageIndex
+                perPage: _perPage, currentPageIndex: _currentPageIndex
             })
             .then(function (data) {
                 $scope.dataSource = data;
@@ -28,6 +27,9 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     }
 
     var _edit = function (item) {
+        angular.forEach($scope.dataSource,function(item){
+            item.isEdit(false);
+        })
         item.saveState()
         item.isEdit(true);
     }
@@ -48,8 +50,6 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     }
 
     var _addColumn = function (column) {
-        console.log('add column')
-
         _columns.push({
             title: column.title,
             field: column.field,

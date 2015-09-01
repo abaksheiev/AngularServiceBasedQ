@@ -5,11 +5,10 @@
 }
 
 ul.pager {
-
+    text-align: center;
 }
 
 ul.pager li{
-    float: left;
     padding: 5px;
     margin: 7px;
     background-color: #dddddd;
@@ -17,6 +16,7 @@ ul.pager li{
     color: #000;
     cursor: pointer;
     cursor: hand;
+    display: inline-block;
 }
 
 ul.pager li.active{

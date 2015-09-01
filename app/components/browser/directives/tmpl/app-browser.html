@@ -26,6 +26,7 @@
                 </button>
 
                 <button ng-click="save(data)"
+                        ng-disabled="!data.isValid()"
                         ng-show="data.isEdit()"
                         class="btn btn-default btn-sm">
                     Save

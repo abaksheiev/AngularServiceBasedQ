@@ -7,14 +7,6 @@
  * */
 
 App.Directories.AppBrowser = function factory() {
-    console.log('AppBrowser');
-    var supportedActions = ['edit', 'save', 'delete'];
-    var _columns=[];
-
-    var _cleanUp=function(){
-
-    };
-
     return {
         restrict: 'E',
         templateNamespace: 'html',

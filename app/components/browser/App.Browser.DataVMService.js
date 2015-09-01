@@ -6,12 +6,13 @@ App.Browser.DataVMService = function () {
     var _getVM = function (columns) {
 
         var vm = {};
+        var _isInit = true;
         var _fields = [];
         var _validationAttr = {};
 
         var _isEdit = false;
 
-        var _state={};
+        var _state = {};
 
         // create fields
         for (var i = 0; i < columns.length; i++) {
@@ -29,6 +30,9 @@ App.Browser.DataVMService = function () {
                 var index = i;
                 this[_fields[index]] = data[_fields[index]];
             }
+
+            // Indicate that model is loaded
+            _isInit = true;
         };
 
         // set indicator of editing
@@ -54,20 +58,33 @@ App.Browser.DataVMService = function () {
             return true;
         };
 
-        vm['saveState'] = function(){
+        vm['saveState'] = function () {
             for (var i = 0; i < _fields.length; i++) {
                 var index = i;
                 _state[_fields[index]] = this[_fields[index]];
             }
         }
 
-        vm['revertState']=function(){
+        vm['revertState'] = function () {
             for (var i = 0; i < _fields.length; i++) {
                 var index = i;
                 this[_fields[index]] = _state[_fields[index]];
             }
         }
 
+        vm['isValid'] = function () {
+            if (!_isInit) {
+                return true;
+            }
+            for (var i = 0; i < _fields.length; i++) {
+                var index = i;
+                if (!this['isFieldValid'](_fields[index])) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         return vm;
     };
 
@@ -86,21 +103,3 @@ App.Browser.DataVMService = function () {
 App.Browser.DataVMService.$inject = [];
 
 myApp.factory('App.Browser.DataVMService', App.Browser.DataVMService);
-
-/*
-* var _isValid = function () {
- if(!_isInit){
- return true;
- }
- var fields = ['firstName', 'email'];
- for(var i=0;i<fields.length;i++){
- if(!this.isFieldValid(fields[i])){
- return false;
- }
- }
-
- return true;
- }
-*
-*
-* */
