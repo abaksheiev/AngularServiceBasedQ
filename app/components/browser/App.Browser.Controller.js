@@ -3,7 +3,6 @@
  * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
  *********************************************************************/
 App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
-    var _settings = {};
     var _columns = [];
 
     var _perPage = 10;
@@ -12,6 +11,8 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
     var _pageMarge = 5;
 
     var _isEditMode = false;
+
+    $scope.dataSource = [];
 
     var _refresh = function () {
         dataService
@@ -109,7 +110,7 @@ App.Browser.BrowserController = function ($scope, $q, dataService, vmService) {
         _refresh()
     }
 
-    var _getIsEditMode = function(){
+    var _getIsEditMode = function () {
         return _isEditMode;
     }
 

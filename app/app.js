@@ -58,27 +58,8 @@ myApp.config(['$translateProvider', function ($translateProvider) {
         'CANCEL': 'Cancel',
         'USERS':'Users',
         'COMPANIES':'Companies',
-        'COUNTRIES':'Countries'
-    });
-
-    $translateProvider.translations('ru', {
-        'EDIT': 'Редактировать',
-        'DELETE': 'Удалить',
-        'SAVE': 'Coхранить',
-        'CANCEL': 'Отмена',
-        'USERS':'Клиееты',
-        'COMPANIES':'Компании',
-        'COUNTRIES':'Страны'
-    });
-
-    $translateProvider.translations('pl', {
-        'EDIT': 'Edycja',
-        'DELETE': 'Usu?',
-        'SAVE': 'Zapisz',
-        'CANCEL': 'Anuluj',
-        'USERS':'Klienci',
-        'COMPANIES':'Sp??ki',
-        'COUNTRIES':'Kraje'
+        'COUNTRIES':'Countries',
+        'LOADING':'Loading...'
     });
 
     $translateProvider.translations('de', {
@@ -88,7 +69,8 @@ myApp.config(['$translateProvider', function ($translateProvider) {
         "CANCEL": 'Abbrechen',
         'USERS':'Nutzer',
         'COMPANIES':'Unternehmen',
-        'COUNTRIES':'Land'
+        'COUNTRIES':'Land',
+        'LOADING':'Verladung...'
     });
 
     $translateProvider.preferredLanguage('de');

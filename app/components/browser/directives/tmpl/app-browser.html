@@ -1,4 +1,7 @@
-<div>
+<div ng-show="dataSource.length == 0">
+    {{'LOADING'|translate}}
+</div>
+<div ng-show="dataSource.length > 0">
     <table class="table table-striped">
         <thead>
         <th width="200px" ng-repeat="column in columns">{{column.title}}</th>
