@@ -2,7 +2,7 @@
 
 Smart Browser is component based on angularjs framework. 
 
-DEMO http://abaksheiev.github.io/CRUDAngularjsApp/index.html#
+DEMO http://abaksheiev.github.io/angularjs-example-directives/index.html#
 
 1. Example of using MENU component via html 
 ```html
