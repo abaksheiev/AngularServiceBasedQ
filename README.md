@@ -1,4 +1,4 @@
-# Smart Browser
+# Quick 'grid-wth-data'
 
 Smart Browser is component based on angularjs framework. 
 
