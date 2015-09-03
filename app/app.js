@@ -4,7 +4,10 @@
  *********************************************************************/
 
 var myApp = angular.module('app',
-    ['ngRoute', 'pascalprecht.translate']);
+    ['ngRoute'
+        , 'pascalprecht.translate'
+        , 'ngMock'
+    ]);
 
 myApp.config(function ($routeProvider, $locationProvider) {
 
@@ -56,10 +59,10 @@ myApp.config(['$translateProvider', function ($translateProvider) {
         'DELETE': 'Delete',
         'SAVE': 'Save',
         'CANCEL': 'Cancel',
-        'USERS':'Users',
-        'COMPANIES':'Companies',
-        'COUNTRIES':'Countries',
-        'LOADING':'Loading...'
+        'USERS': 'Users',
+        'COMPANIES': 'Companies',
+        'COUNTRIES': 'Countries',
+        'LOADING': 'Loading...'
     });
 
     $translateProvider.translations('de', {
@@ -67,10 +70,10 @@ myApp.config(['$translateProvider', function ($translateProvider) {
         "DELETE": "L?schen",
         "SAVE": "Speichern",
         "CANCEL": 'Abbrechen',
-        'USERS':'Nutzer',
-        'COMPANIES':'Unternehmen',
-        'COUNTRIES':'Land',
-        'LOADING':'Verladung...'
+        'USERS': 'Nutzer',
+        'COMPANIES': 'Unternehmen',
+        'COUNTRIES': 'Land',
+        'LOADING': 'Verladung...'
     });
 
     $translateProvider.preferredLanguage('de');
