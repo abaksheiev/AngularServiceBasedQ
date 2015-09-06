@@ -4,10 +4,7 @@
  *********************************************************************/
 
 var myApp = angular.module('app',
-    ['ngRoute'
-        , 'pascalprecht.translate'
-        , 'ngMock'
-    ]);
+    ['ngRoute','pascalprecht.translate']);
 
 myApp.config(function ($routeProvider, $locationProvider) {
 
